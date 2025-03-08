@@ -1,0 +1,6 @@
+flask
+flask-cors
+smtplib
+email-validator
+python_dotenv
+pymongo
