@@ -47,7 +47,7 @@ def send_verify_email():
         if not correo or not codigo:
             return jsonify({"error": "Faltan datos"}), 400
 
-        html_content = cargar_plantilla_html('verificar_email', {
+        html_content = cargar_plantilla_html('verificar-email', {
             "{code}": codigo
         })
         enviar_correo(correo, html_content)
@@ -69,7 +69,7 @@ def send_reset_password_email():
         if not nombre or not correo or not codigo:
             return jsonify({"error": "Faltan datos"}), 400
 
-        html_content = cargar_plantilla_html('reestablecer_contrasena', {
+        html_content = cargar_plantilla_html('reestablecer-contrasena', {
             "{name}": nombre,
             "{code}": codigo
         })
@@ -81,7 +81,7 @@ def send_reset_password_email():
         return jsonify({"error": str(e)}), 500
     
 @app.route("/cita-details", methods=["POST"])
-def send_reset_password_email():
+def send_cita_details_email():
 
     try:
         data = request.json
@@ -114,4 +114,4 @@ def send_reset_password_email():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
